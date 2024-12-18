@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Serie Binaria</title>
+  <script>
+    function generarBinaria() {
+      let n = parseInt(document.formuBinaria.n.value);
+      let resultado = [];
+      for (let i = 0; i < n; i++) {
+        resultado.push(i.toString(2));
+      }
+      document.formuBinaria.resultado.value = resultado.join(", ");
+    }
+  </script>
+</head>
+<body>
+    <h1>SERIE BINARIA</h1>
+  <form name="formuBinaria">
+    <table border="1" align="center">
+      <tr>
+        <td><input type="button" value="Generar Serie" onclick="generarBinaria()"></td>
+        <td>N</td>
+        <td><input type="text" name="n"></td>
+      </tr>
+      <tr>
+        <td colspan="2">Serie Binaria</td>
+        <td><input type="text" name="resultado"></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

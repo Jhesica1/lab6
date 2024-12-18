@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Serie Exponencial</title>
+  <script>
+    function generarExponencial() {
+      let x = parseFloat(document.formuExponencial.x.value);
+      let n = parseInt(document.formuExponencial.num.value);
+      let resultado = 1;
+      let factorial = 1;
+      
+      for (let i = 1; i < n; i++) {
+        factorial *= i;
+        resultado += Math.pow(x, i) / factorial;
+      }
+
+      document.formuExponencial.resultado.value = resultado;
+    }
+  </script>
+</head>
+<body>
+    <h1>SERIE EXPONENCIAL</h1>
+    <p>ejemplo de serie exponencial: </p>
+    <center><img src="/imagenes/expo.png"></center><br/>
+  <form name="formuExponencial">
+    <table border="1" align="center">
+      <tr>
+        <td><input type="button" value="Generar Serie Exponencial" onclick="generarExponencial()"></td>
+        <td>Valor de x</td>
+        <td><input type="text" name="x" placeholder="Introduce el valor de x"></td>
+      </tr>
+      <tr>
+        <td>Terminos N</td>
+        <td><input type="text" name="num" placeholder="Introduce el número de términos"></td>
+      </tr>
+      <tr>
+        <td colspan="2">Resultado</td>
+        <td><input type="text" name="resultado" readonly></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

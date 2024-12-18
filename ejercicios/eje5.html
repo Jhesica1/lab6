@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Rotar Dígitos Pares</title>
+  <script>
+    function rotarParesDerecha() {
+      let num = document.formuRotarPares.num.value;
+
+      if (num.length < 6) {
+        document.formuRotarPares.resultado.value = "El número debe tener al menos 6 dígitos.";
+        return;
+      }
+
+      let pares = [];
+      for (let i = 0; i < num.length; i++) {
+        if (num[i] % 2 === 0) {
+          pares.push(num[i]);
+        }
+      }
+
+      if (pares.length > 0) {
+        let ultimoPar = pares.pop(); 
+        pares.unshift(ultimoPar);  
+      }
+
+      let resultado = "";
+      let indicePares = 0;
+      for (let i = 0; i < num.length; i++) {
+        if (num[i] % 2 === 0) {
+          resultado += pares[indicePares];
+          indicePares++;
+        } else {
+          resultado += num[i];
+        }
+      }
+
+      document.formuRotarPares.resultado.value = resultado;
+    }
+  </script>
+</head>
+<body>
+    <h1> ROTAR POR DERECHA </h1>
+  <form name="formuRotarPares">
+    <table border="1" align="center">
+      <tr>
+        <td><input type="button" value="Rotar Pares" onclick="rotarParesDerecha()"></td>
+        <td>Número</td>
+        <td><input type="text" name="num" placeholder="Introduce un número"></td>
+      </tr>
+      <tr>
+        <td colspan="2">Número Rotado</td>
+        <td><input type="text" name="resultado" readonly></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

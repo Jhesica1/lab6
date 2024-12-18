@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Factoriales y Suma</title>
+  <script>
+    function calcularFactorialesYSuma() {
+      let n = parseInt(document.formuFactorial.n.value);
+      let suma = 0;
+      let resultado = "";
+      function factorial(num) {
+        if (num === 0 || num === 1) return 1;
+        return num * factorial(num - 1);
+      }
+
+      for (let i = 1; i <= n; i++) {
+        let fact = factorial(i);
+        suma += fact;
+        resultado += `${i}! = ${fact}\n`; 
+      }
+
+      document.formuFactorial.factoriales.value = resultado.trim();
+      document.formuFactorial.suma.value = suma;
+    }
+  </script>
+</head>
+    <h1>SUMA DE FACTORIALES</h1>
+<body>
+  <form name="formuFactorial">
+    <table border="1" align="center">
+      <tr>
+        <td><input type="button" value="Calcular" onclick="calcularFactorialesYSuma()"></td>
+        <td>N</td>
+        <td><input type="text" name="n"></td>
+      </tr>
+      <tr>
+        <td colspan="2">Factoriales</td>
+        <td><textarea name="factoriales" rows="5" cols="30" readonly></textarea></td>
+      </tr>
+      <tr>
+        <td colspan="2">Suma</td>
+        <td><input type="text" name="suma" readonly></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

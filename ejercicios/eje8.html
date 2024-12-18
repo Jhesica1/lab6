@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Verificar Número Primo</title>
+  <script>
+    function verificarPrimo() {
+      let num = parseInt(document.formuPrimo.num.value);
+      
+      if (num <= 1) {
+        document.formuPrimo.resultado.value = "NO ES PRIMO";
+        return;
+      }
+
+      let esPrimo = true;
+      for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+          esPrimo = false;
+          break;
+        }
+      }
+
+      if (esPrimo) {
+        document.formuPrimo.resultado.value = "ES PRIMO";
+      } else {
+        document.formuPrimo.resultado.value = "NO ES PRIMO";
+      }
+    }
+  </script>
+</head>
+<body>
+    <h1>VERIFICAR SI UN NUMERO ES PRIMO O NO.</h1>
+  <form name="formuPrimo">
+    <table border="1" align="center">
+      <tr>
+        <td><input type="button" value="Verificar" onclick="verificarPrimo()"></td>
+        <td>Número</td>
+        <td><input type="text" name="num" placeholder="Introduce un número"></td>
+      </tr>
+      <tr>
+        <td colspan="2">Resultado</td>
+        <td><input type="text" name="resultado" readonly></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

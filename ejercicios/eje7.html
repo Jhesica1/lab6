@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Verificar Capicúa</title>
+  <script>
+    function verificarCapicua() {
+      let num = document.formuCapicua.num.value;
+      let numInvertido = num.split('').reverse().join('');
+      
+      if (num === numInvertido) {
+        document.formuCapicua.resultado.value = "ES CAPICUA";
+      } else {
+        document.formuCapicua.resultado.value = "NO ES CAPICUA";
+      }
+    }
+  </script>
+</head>
+<body>
+    <h1>VERIFICAR SI UN NUMERO ES CAPIGUA</h1>
+  <form name="formuCapicua">
+    <table border="1" align="center">
+      <tr>
+        <td><input type="button" value="Verificar" onclick="verificarCapicua()"></td>
+        <td>Número</td>
+        <td><input type="text" name="num" placeholder="Introduce un número"></td>
+      </tr>
+      <tr>
+        <td colspan="2">Resultado</td>
+        <td><input type="text" name="resultado" readonly></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

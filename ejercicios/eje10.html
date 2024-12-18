@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Serie Fibonacci</title>
+  <script>
+    function generarFibonacci() {
+      let n = parseInt(document.formuFibonacci.num.value);
+      let fibonacci = [0, 1];
+      
+      for (let i = 2; i < n; i++) {
+        fibonacci.push(fibonacci[i-1] + fibonacci[i-2]);
+      }
+
+      document.formuFibonacci.resultado.value = fibonacci.slice(0, n).join(", ");
+    }
+  </script>
+</head>
+<body>
+    <h1>VECTOR FIBONACCI</h1>
+  <form name="formuFibonacci">
+    <table border="1" align="center">
+      <tr>
+        <td><input type="button" value="Generar Fibonacci" onclick="generarFibonacci()"></td>
+        <td>Ingrese el valor de N</td>
+        <td><input type="text" name="num" placeholder="Ingrese un número"></td>
+      </tr>
+      <tr>
+        <td colspan="2">Serie de Fibonacci</td>
+        <td><input type="text" name="resultado" readonly></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

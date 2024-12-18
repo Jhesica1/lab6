@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Invertir Cadena</title>
+  <script>
+    function invertirCadena() {
+      let cadena = document.formuInvertir.cadena.value;
+      let cadenaInvertida = cadena.split('').reverse().join('');
+      
+      document.formuInvertir.resultado.value = cadenaInvertida;
+    }
+  </script>
+</head>
+<body>
+    <h1>INVERTIR CADENAS</h1>
+  <form name="formuInvertir">
+    <table border="1" align="center">
+      <tr>
+        <td><input type="button" value="Invertir Cadena" onclick="invertirCadena()"></td>
+        <td>Cadena</td>
+        <td><input type="text" name="cadena" placeholder="Introduce una cadena"></td>
+      </tr>
+      <tr>
+        <td colspan="2">Cadena Invertida</td>
+        <td><input type="text" name="resultado" readonly></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

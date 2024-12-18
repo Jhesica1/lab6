@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Matriz de Pascal</title>
+  <script>
+    function generarPascal() {
+      let n = parseInt(document.formuPascal.n.value);
+      let resultado = "";
+      let pascal = [[1]];
+      for (let i = 1; i < n; i++) {
+        let fila = [1];
+        for (let j = 1; j < i; j++) {
+          fila.push(pascal[i - 1][j - 1] + pascal[i - 1][j]);
+        }
+        fila.push(1);
+        pascal.push(fila);
+      }
+      pascal.forEach(fila => {
+        resultado += fila.join(" ") + "\n";
+      });
+      document.formuPascal.resultado.value = resultado.trim();
+    }
+  </script>
+</head>
+<body>
+    <h1>MATRIZ PASCAL</h1>
+  <form name="formuPascal">
+    <table border="1" align="center" >
+      <tr>
+        <td><input type="button" value="Generar Pascal" onclick="generarPascal()"></td>
+        <td>N</td>
+        <td><input type="text" name="n"></td>
+      </tr>
+      <tr>
+        <td colspan="2">Matriz</td>
+        <td><textarea name="resultado" rows="10" cols="30"></textarea></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

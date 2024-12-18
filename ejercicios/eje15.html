@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Convertir a Números Romanos</title>
+  <script>
+    function convertirARomanos() {
+      let num = parseInt(document.formuRomanos.num.value);
+      let romanos = [
+        ["M", 1000],
+        ["CM", 900],
+        ["D", 500],
+        ["CD", 400],
+        ["C", 100],
+        ["XC", 90],
+        ["L", 50],
+        ["XL", 40],
+        ["X", 10],
+        ["IX", 9],
+        ["V", 5],
+        ["IV", 4],
+        ["I", 1]
+      ];
+      
+      let resultado = "";
+      
+      for (let i = 0; i < romanos.length; i++) {
+        while (num >= romanos[i][1]) {
+          resultado += romanos[i][0];
+          num -= romanos[i][1];
+        }
+      }
+      
+      document.formuRomanos.resultado.value = resultado;
+    }
+  </script>
+</head>
+<body>
+    <h1>NUMEROS ROMANOS</h1>
+  <form name="formuRomanos">
+    <table border="1" aling="center">
+      <tr>
+        <td><input type="button" value="Convertir a Romanos" onclick="convertirARomanos()"></td>
+        <td>Número Entero</td>
+        <td><input type="text" name="num" placeholder="Introduce un número entero"></td>
+      </tr>
+      <tr>
+        <td colspan="2">Número Romano</td>
+        <td><input type="text" name="resultado" readonly></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

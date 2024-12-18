@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Generar Números Primos</title>
+  <script>
+    function generarPrimos() {
+      let n = parseInt(document.formuPrimos.num.value);
+      let primos = [];
+      let num = 2;
+
+      while (primos.length < n) {
+        let esPrimo = true;
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+          if (num % i === 0) {
+            esPrimo = false;
+            break;
+          }
+        }
+        if (esPrimo) {
+          primos.push(num);
+        }
+        num++;
+      }
+
+      document.formuPrimos.resultado.value = primos.join(", ");
+    }
+  </script>
+</head>
+<body>
+    <h1>GENERAR PRIMOS </h1>
+  <form name="formuPrimos">
+    <table border="1" align="center">
+      <tr>
+        <td><input type="button" value="Generar Primos" onclick="generarPrimos()"></td>
+        <td>Ingrese el valor de N</td>
+        <td><input type="text" name="num" placeholder="Ingrese un número"></td>
+      </tr>
+      <tr>
+        <td colspan="2">Números Primos Generados</td>
+        <td><input type="text" name="resultado" readonly></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

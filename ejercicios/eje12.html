@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Verificar Palíndromo</title>
+  <script>
+    function verificarPalindromo() {
+      let palabra = document.formuPalindromo.palabra.value;
+      let palabraReversa = palabra.split('').reverse().join('');
+      
+      if (palabra === palabraReversa) {
+        document.formuPalindromo.resultado.value = "ES PALÍNDROMO";
+      } else {
+        document.formuPalindromo.resultado.value = "NO ES PALÍNDROMO";
+      }
+    }
+  </script>
+</head>
+<body>
+    <h1>VERIFICAR SI UNA CADENA ES PALINDROMO</h1>
+  <form name="formuPalindromo">
+    <table border="1" align="center">
+      <tr>
+        <td><input type="button" value="Verificar Palíndromo" onclick="verificarPalindromo()"></td>
+        <td>Palabra</td>
+        <td><input type="text" name="palabra" placeholder="Introduce una palabra"></td>
+      </tr>
+      <tr>
+        <td colspan="2">Resultado</td>
+        <td><input type="text" name="resultado" readonly></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

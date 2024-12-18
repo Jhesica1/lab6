@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Calculadora</title>
+  <script>
+    function sumar() {
+      let n1 = parseFloat(document.formuCalculadora.num1.value);
+      let n2 = parseFloat(document.formuCalculadora.num2.value);
+      document.formuCalculadora.resultado.value = n1 + n2;
+    }
+
+    function restar() {
+      let n1 = parseFloat(document.formuCalculadora.num1.value);
+      let n2 = parseFloat(document.formuCalculadora.num2.value);
+      document.formuCalculadora.resultado.value = n1 - n2;
+    }
+
+    function multiplicar() {
+      let n1 = parseFloat(document.formuCalculadora.num1.value);
+      let n2 = parseFloat(document.formuCalculadora.num2.value);
+      document.formuCalculadora.resultado.value = n1 * n2;
+    }
+
+    function dividir() {
+      let n1 = parseFloat(document.formuCalculadora.num1.value);
+      let n2 = parseFloat(document.formuCalculadora.num2.value);
+      if (n2 !== 0) {
+        document.formuCalculadora.resultado.value = n1 / n2;
+      } else {
+        document.formuCalculadora.resultado.value = "Error: División por cero";
+      }
+    }
+
+    function factorial() {
+      let num = parseInt(document.formuCalculadora.num1.value);
+      let result = 1;
+      for (let i = 1; i <= num; i++) {
+        result *= i;
+      }
+      document.formuCalculadora.resultado.value = result;
+    }
+
+    function potencia() {
+      let base = parseFloat(document.formuCalculadora.num1.value);
+      let exponente = parseFloat(document.formuCalculadora.num2.value);
+      document.formuCalculadora.resultado.value = Math.pow(base, exponente);
+    }
+  </script>
+</head>
+<body>
+    <h1>CALCULADORA</h1>
+  <form name="formuCalculadora">
+    <table border="1" aling="center">
+      <tr>
+        <td>Num 1</td>
+        <td><input type="text" name="num1" placeholder="Introduce un número"></td>
+      </tr>
+      <tr>
+        <td>Num 2</td>
+        <td><input type="text" name="num2" placeholder="Introduce un número"></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input type="button" value="Suma" onclick="sumar()">
+          <input type="button" value="Resta" onclick="restar()">
+          <input type="button" value="Multiplicar" onclick="multiplicar()">
+          <input type="button" value="Dividir" onclick="dividir()">
+          <input type="button" value="Factorial" onclick="factorial()">
+          <input type="button" value="Potencia (x^y)" onclick="potencia()">
+        </td>
+      </tr>
+      <tr>
+        <td>Resultado</td>
+        <td><input type="text" name="resultado" readonly></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>
